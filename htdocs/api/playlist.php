@@ -89,7 +89,7 @@ function handlePut() {
     $body = file_get_contents('php://input');
     $json = json_decode(trim($body), TRUE);
     if (validateRequest($json)) {
-        $playlist = $json['playlist'];
+        $playlist = str_replace("'","'\''",$json['playlist']);
         if($debugLoggingConf['DEBUG_WebApp_API'] == "TRUE") {
             file_put_contents("../../logs/debug.log", "\n  # \$playlist:" . $playlist , FILE_APPEND | LOCK_EX);
         }

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $body = file_get_contents('php://input');
     $json = json_decode(trim($body), TRUE);
     if (validateRequest($json)) {
-        $playlist = $json['playlist'];
+        $playlist = str_replace("'","'\''",$json['playlist']);
         $shuffle = $json['single'];
         if ($shuffle === 'true') {
             execScript("single_play.sh -c=singleenable -d='{$playlist}'");

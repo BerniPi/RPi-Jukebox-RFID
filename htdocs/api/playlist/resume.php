@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         file_put_contents("../../../logs/debug.log", "\n# WebApp API # " . __FILE__ , FILE_APPEND | LOCK_EX);
     }
     if (validateRequest($json)) {
-        $playlist = $json['playlist'];
+        $playlist = str_replace("'","'\''",$json['playlist']);
         $resume = $json['resume'];
         if($debugLoggingConf['DEBUG_WebApp_API'] == "TRUE") {
             file_put_contents("../../../logs/debug.log", "\n  # attempting to toggle resume: playlist (".$json['playlist'].") and resume (".$json['resume'].")" , FILE_APPEND | LOCK_EX);
