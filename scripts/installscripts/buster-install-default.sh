@@ -5,7 +5,7 @@
 # NOTE: Running automated install (without interaction):
 # Each install creates a file called PhonieboxInstall.conf
 # in the folder /home/pi/
-# You can install the Phoniebox using such a config file
+# You can install the Phoniebox using sucsh a config file
 # which means you don't need to run the interactive install:
 #
 # 1. download the install file from github
@@ -230,7 +230,7 @@ check_existing() {
             #echo "The version of your installation is: $(cat ${jukebox_dir}/settings/version)"
 
             # get the current short commit hash of the repo
-            CURRENT_REMOTE_COMMIT="$(git ls-remote https://github.com/MiczFlor/RPi-Jukebox-RFID.git ${GIT_BRANCH} | cut -c1-7)"
+            CURRENT_REMOTE_COMMIT="$(git ls-remote https://github.com/BerniPi/RPi-Jukebox-RFID.git ${GIT_BRANCH} | cut -c1-7)"
         fi
         echo "IMPORTANT: you can use the existing content and configuration"
         echo "files for your new install."
@@ -747,7 +747,7 @@ install_main() {
 
     # Get github code
     cd "${HOME_DIR}" || exit
-    git clone https://github.com/MiczFlor/RPi-Jukebox-RFID.git --branch "${GIT_BRANCH}"
+    git clone https://github.com/BerniPi/RPi-Jukebox-RFID.git --branch "${GIT_BRANCH}"
 
     # VERSION of installation
 
@@ -1114,7 +1114,7 @@ finish_installation() {
     echo
     echo "DONE. Let the sounds begin."
     echo "Find more information and documentation on the github account:"
-    echo "https://github.com/MiczFlor/RPi-Jukebox-RFID/wiki/"
+    echo "https://github.com/BerniPi/RPi-Jukebox-RFID/wiki/"
 
     echo "Reboot is needed to activate all settings"
     # Use -e to display response of user in the logfile
