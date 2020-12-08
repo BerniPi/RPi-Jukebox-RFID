@@ -70,6 +70,14 @@ def functionCallPlayerStop(*args):
             shell=True)
 
 
+def functionCallPlayerSeekFwd(*args):
+    function_call("{command} -c=playerseek -v=+10".format(command=playout_control), shell=True)
+
+
+def functionCallPlayerSeekBack(*args):
+    function_call("{command} -c=playerseek -v=-10".format(command=playout_control), shell=True)
+
+
 def getFunctionCall(functionName):
     logger.error('Get FunctionCall: {} {}'.format(functionName, functionName in locals()))
     getattr(sys.modules[__name__], str)
